@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { JwtService } from '../shared/jwt.service';
 
 @Component({
   selector: 'app-auth-receiver',
@@ -7,7 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./auth-receiver.component.scss']
 })
 export class AuthReceiverComponent implements OnInit {
-  constructor(private activeRoute: ActivatedRoute) {}
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private jwtService: JwtService,
+  ) {}
   ngOnInit(){
     try {
       const fragment = this.activeRoute.snapshot.fragment;
@@ -18,7 +22,7 @@ export class AuthReceiverComponent implements OnInit {
           return acc;
         }, {});
       const jwt = paramsMap['id_token'];
-      console.log('JWT is ' + jwt);
+      this.jwtService.setJwt(jwt);
     } catch (error){
       console.log('Error when parsing url parameters');
       throw error;
