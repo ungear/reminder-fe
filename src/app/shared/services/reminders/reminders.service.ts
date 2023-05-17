@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ReminderDto } from 'src/app/typing/reminderDto';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class RemindersService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): any{
-    return this.http.get(this.apiUrl + '/getAll');
+  getAll() {
+    return this.http.get<ReminderDto[]>(this.apiUrl + '/getAll');
   }
 }

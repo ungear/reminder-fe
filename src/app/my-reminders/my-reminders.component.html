@@ -1,1 +1,6 @@
-<p>my-reminders works!</p>
+<h3>My Reminders</h3>
+<div>
+  <div *ngFor="let reminder of reminders$ | async">
+    {{reminder.triggerTime}} - {{reminder.text}}
+  </div>
+</div>
