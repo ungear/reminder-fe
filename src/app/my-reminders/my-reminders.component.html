@@ -1,6 +1,11 @@
 <h3>My Reminders</h3>
-<div>
-  <div *ngFor="let reminder of reminders$ | async">
-    {{reminder.triggerTime}} - {{reminder.text}}
+<div class="reminders-grid">
+  <div class="reminder-row reminder-row--header" *ngFor="let reminder of reminders$ | async">
+    <div class="reminder-cell reminder-cell__time">Time</div>
+    <div class="reminder-cell reminder-cell__text">Text</div>
+  </div>
+  <div class="reminder-row" *ngFor="let reminder of reminders$ | async">
+    <div class="reminder-cell reminder-cell__time">{{reminder.triggerTime}}</div>
+    <div class="reminder-cell reminder-cell__text">{{reminder.text}}</div>
   </div>
 </div>
