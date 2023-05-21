@@ -15,8 +15,4 @@ export class MyRemindersComponent {
   constructor(
     private remindersApi: RemindersService,
   ){}
-
-  onNewReminderClick(){
-
-  }
 }

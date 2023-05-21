@@ -1,5 +1,5 @@
+<app-new-reminder></app-new-reminder>
 <h3>My Reminders</h3>
-<button (click)="onNewReminderClick()">New Reminder</button>
 <div class="reminders-grid">
   <div class="reminder-row reminder-row--header" *ngFor="let reminder of reminders$ | async">
     <div class="reminder-cell reminder-cell__time">Time</div>
