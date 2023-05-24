@@ -14,4 +14,9 @@ export class RemindersService {
   getAll() {
     return this.http.get<ReminderDto[]>(this.apiUrl + '/getAll');
   }
+
+  create(date: Date, text: string): any {
+    const payload = { triggerTime: date.getTime(), text};
+    return this.http.post(this.apiUrl + '/reminder', payload);
+  }
 }

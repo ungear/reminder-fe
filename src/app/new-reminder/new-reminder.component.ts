@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RemindersService} from "../shared/services/reminders/reminders.service";
 
 @Component({
   selector: 'app-new-reminder',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-reminder.component.scss']
 })
 export class NewReminderComponent {
-  name: any;
+  date: any;
+  text = "";
+
+  constructor(private remindersApi: RemindersService){}
+
+  onCreateButtonClick(){
+    this.remindersApi.create(this.date, this.text).subscribe();
+  }
 }

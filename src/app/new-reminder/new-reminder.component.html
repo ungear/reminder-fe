@@ -1,12 +1,13 @@
 <section>
   <h3>New Reminder</h3>
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="name">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-  {{name?.getTime()}}
+  <input type="text" [(ngModel)]="text">
+  <button (click)="onCreateButtonClick()">Create</button>
 </section>
 
 
