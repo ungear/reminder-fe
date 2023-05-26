@@ -4,9 +4,13 @@
   <div class="reminder-row reminder-row--header">
     <div class="reminder-cell reminder-cell__time">Time</div>
     <div class="reminder-cell reminder-cell__text">Text</div>
+    <div class="reminder-cell reminder-cell__buttons"></div>
   </div>
   <div class="reminder-row" *ngFor="let reminder of reminders$ | async">
     <div class="reminder-cell reminder-cell__time">{{reminder.triggerDate}}</div>
     <div class="reminder-cell reminder-cell__text">{{reminder.text}}</div>
+    <div class="reminder-cell reminder-cell__buttons">
+      <span (click)="onDeleteClick(reminder.id)">Delete</span>
+    </div>
   </div>
 </div>

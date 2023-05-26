@@ -19,4 +19,8 @@ export class RemindersService {
     const payload = { triggerTime: date.getTime(), text};
     return this.http.post(this.apiUrl + '/reminder', payload);
   }
+
+  delete(id: string): any {
+    return this.http.delete(this.apiUrl + '/reminder/' + id);
+  }
 }

@@ -21,4 +21,8 @@ export class MyRemindersComponent {
   constructor(
     private remindersApi: RemindersService,
   ){}
+
+  onDeleteClick(id: string){
+    this.remindersApi.delete(id).subscribe();
+  }
 }
