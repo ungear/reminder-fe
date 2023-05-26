@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { RemindersService } from '../shared/services/reminders/reminders.service';
 import { ReminderDto } from '../typing/reminderDto';
 
@@ -9,8 +9,14 @@ import { ReminderDto } from '../typing/reminderDto';
   styleUrls: ['./my-reminders.component.scss']
 })
 export class MyRemindersComponent {
-  //reminders$: Observable<ReminderDto[]> | undefined;
-  reminders$ = this.remindersApi.getAll();
+  reminders$ = this.remindersApi.getAll().pipe(
+    map(reminders => {
+      return reminders.map(x => {
+        const date = new Date(x.triggerTime);
+        return {...x, triggerDate: date}
+      })
+    })
+  );
 
   constructor(
     private remindersApi: RemindersService,

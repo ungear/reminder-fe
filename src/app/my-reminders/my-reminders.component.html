@@ -6,7 +6,7 @@
     <div class="reminder-cell reminder-cell__text">Text</div>
   </div>
   <div class="reminder-row" *ngFor="let reminder of reminders$ | async">
-    <div class="reminder-cell reminder-cell__time">{{reminder.triggerTime}}</div>
+    <div class="reminder-cell reminder-cell__time">{{reminder.triggerDate}}</div>
     <div class="reminder-cell reminder-cell__text">{{reminder.text}}</div>
   </div>
 </div>
